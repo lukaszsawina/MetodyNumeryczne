@@ -29,11 +29,24 @@ int main()
 	//std::cout << rekuHorner_PostacNewtona(bn, xn, -0, 3) << std::endl;
 	//std::cout << rekuHorner_PostacNewtona(bn, xn, 2, 3) << std::endl;
 
+
+	//
+	//	Newton na naturalne
+	//
+	//std::cout << "Wspó³czynniki wielomianu naturalnego z wielomianu Newtona" << std::endl;
+	////b3,b2,b1,b0
+	//double bn[] = { (double)1/2, (double)-7 / 6 , (double) 5 / 3, (double)-4 };
+	////x3,x2,x1
+	//double xn[] = { (double)0, (double)-1, (double)-4};
+
+
 	//
 	//	Interpolacja Lagrange'a
 	// 
 	//std::cout << "Interpolacja Lagrange'a " << std::endl;
-	//double xn[] = {-2, -1.9, -1.8, -1.7, -1.6};
+	// x0,x1,x2,x3,x4
+	// double xn[] = {-2, -1.9, -1.8, -1.7, -1.6};
+	// y0,y1,y2,y3,y4
 	//double yn[] = {1.4, 8.05784, 14.19904, 19.83584, 24.98144};
 
 	//std::cout << lagrange(xn, yn, -1.75, 5) << std::endl;
@@ -42,11 +55,17 @@ int main()
 	//
 	//	Iloraz ró¿nicowy
 	//
-	std::cout << "Iloraz roznicowy" << std::endl;
-	double xn[] = {0,2,3,4,6};
-	double yn[] = {1,3,2,5,7};
-	int k = 5;
-	std::cout << iloraz_roznicowy(xn, yn, k) << std::endl;
+	//std::cout << "Iloraz roznicowy" << std::endl;
+	//// x0,x1,x2,x3,x4
+	//double xn[] = {0,2,3,4,6};
+	//// y0,y1,y2,y3,y4
+	//double yn[] = {1,3,2,5,7};
+	//int k = 5;
+
+	//for (int j = 0; j < 5; j++)
+	//	std::cout << iloraz_roznicowy(xn,yn,j+1) << std::endl;
+
+
 
 	return 0;
 }
