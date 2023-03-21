@@ -17,7 +17,26 @@ double rekuHorner_PostacNewtona(double* an, double* xn, int x, int n)
 		return rekuHorner_PostacNewtona(an, xn, x, n - 1) * (x - xn[n - 1]) + an[n];
 }
 
+double newton_to_natural_recursive(double* bn, double* xn, int start, int end) 
+{
+	if (start == end) {
+		return bn[start];
+	}
+	else {
+		double result = (newton_to_natural_recursive(bn, xn, start + 1, end) - newton_to_natural_recursive(bn, xn, start, end - 1)) / (xn[end] - xn[start]);
+		bn[end] = result;
+		return result;
+	}
+}
 
+
+double* newton_to_natural(double* bn, double* xn, int n) 
+{
+	for (int i = 1; i < n; i++) {
+		newton_to_natural_recursive(bn, xn, 0, i);
+	}
+	return bn;
+}
 
 
 double lagrange(double* xn, double* yn, double x, int n) 

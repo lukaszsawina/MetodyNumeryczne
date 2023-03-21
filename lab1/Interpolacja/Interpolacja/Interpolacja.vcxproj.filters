@@ -21,9 +21,15 @@
     <ClCompile Include="Interpolacja.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Kwadratura.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Interpolacja.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Kwadratura.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
