@@ -4,16 +4,43 @@
 #include "Interpolacja.h"
 #include "Kwadratura.h"
 
-double fun_tryg(double x)
+double fun1(double x)
 {
-	return pow(x, 2) * pow(sin(x),3);
+	return 55 - 2 * x - 6 * pow(x, 2) + 5 * pow(x, 3) + 0.4 * pow(x, 4);
 }
-
-double fun_exp(double x)
+double fun2(double x)
+{
+	return 1 - 2 * exp(x) - 6 * cos(x);
+}
+double fun3(double x)
+{
+	return pow(x, 2) * pow(sin(x), 3);
+}
+double fun4(double x)
 {
 	return exp(pow(x, 2)) * (x - 1);
 }
-
+double fun5(double x)
+{
+	return sin(1 - x) / (1 - x);
+}
+double fun6(double x)
+{
+	
+	if ((1 - x) == 0)
+	{
+		return sin(1/1e-5);
+	}
+	return sin(1/(1 - x));
+}
+double fun7(double x)
+{
+	if(x == 0)
+	{
+		return 1;
+	}
+	return sin(x) / x;
+}
 
 int main()
 {
@@ -97,35 +124,44 @@ int main()
 	//double an[] = {0.4, 5, -6, -2, 55};
 	//double xn[] = {-2, -1.9, -1.8, -1.7, -1.6, -1.5, -1.4, -1.3, -1.2, -1.1};
 
-	//std::cout << metoda_trapezow_horner(&Horner_PostacNaturalna, an, xn, 10, 5) << std::endl;
+	//std::cout << metoda_trapezow_horner(an, xn, 10, 5) << std::endl;
 
 	//
 	//	Newton-Cotes wzor trapezów
 	//
-	std::cout << "Newton-Cotes wzor trapezow: 10 000 przedzialow" << std::endl;
-	std::cout << NC_wzor_trapezow(&fun_tryg, 4.5, 0, 10000) << std::endl;
-	std::cout << NC_wzor_trapezow(&fun_exp, 2, -2, 10000) << std::endl;
+	std::cout << "Wzor Trapezow" << std::endl;
+	//std::cout << NC_wzor_trapezow(&fun_tryg, 4.5, 0, 1000000) << std::endl;
+	std::cout.precision(10);
+
+	std::cout << NC_wzor_trapezow(&fun1, 2, -2, 1000000) << std::endl;
+	std::cout << NC_wzor_trapezow(&fun2, 2, -2, 1000000) << std::endl;
+	std::cout << NC_wzor_trapezow(&fun3, 4.5, 0, 2000000) << std::endl;
+	std::cout << NC_wzor_trapezow(&fun4, 2, -2, 5500000) << std::endl;
+	std::cout << NC_wzor_trapezow(&fun5, 1, 0, 5500000) << std::endl;
+	std::cout << NC_wzor_trapezow(&fun6, (1 - 1e-4), 0, 100) << std::endl;
+	std::cout << NC_wzor_trapezow(&fun7, 1, 0, 1000000) << std::endl;
+
 
 	std::cout << std::endl;
-
-	std::cout << "Newton-Cotes wzor trapezow: 1 000 000 przedzialow" << std::endl;
-	std::cout << NC_wzor_trapezow(&fun_tryg, 4.5, 0, 1000000) << std::endl;
-	std::cout << NC_wzor_trapezow(&fun_exp, 2, -2, 1000000) << std::endl;
-
 	std::cout << std::endl;
+
 
 	//
 	//	Newton_Cotes wzor Simpsona
 	//
-	std::cout << "Newton-Cotes wzor Simpsona: 10 000 przedzialow" << std::endl;
-	std::cout << NC_wzor_Simpsona(&fun_tryg, 4.5, 0, 10000) << std::endl;
-	std::cout << NC_wzor_Simpsona(&fun_exp, 2, -2, 10000) << std::endl;
+	std::cout << "Wzor Simpsona" << std::endl;
+	//std::cout << NC_wzor_Simpsona(&fun_tryg, 4.5, 0, 1000000) << std::endl;
+	//std::cout << NC_wzor_Simpsona(&fun_exp, 2, -2, 1000000) << std::endl;
 
-	std::cout << std::endl;
+	std::cout << NC_wzor_Simpsona(&fun1, 2, -2, 1000000) << std::endl;
+	std::cout << NC_wzor_Simpsona(&fun2, 2, -2, 1000000) << std::endl;
+	std::cout << NC_wzor_Simpsona(&fun3, 4.5, 0, 2000000) << std::endl;
+	std::cout << NC_wzor_Simpsona(&fun4, 2, -2, 5500000) << std::endl;
+	std::cout << NC_wzor_Simpsona(&fun5, 1, 0, 5500000) << std::endl;
+	std::cout << NC_wzor_Simpsona(&fun6, 1 - 1e-4, 0, 1000000) << std::endl;
+	std::cout << NC_wzor_Simpsona(&fun7, 1, 0, 1000000) << std::endl;
 
-	std::cout << "Newton-Cotes wzor Simpsona: 1 000 000 przedzialow" << std::endl;
-	std::cout << NC_wzor_Simpsona(&fun_tryg, 4.5, 0, 1000000) << std::endl;
-	std::cout << NC_wzor_Simpsona(&fun_exp, 2, -2, 1000000) << std::endl;
+
 
 	return 0;
 }

@@ -2,7 +2,7 @@
 #include "Kwadratura.h"
 #include "Interpolacja.h"
 
-double metoda_trapezow_horner(double (*f)(double* an, double x, int n), double* an, double* xn, int n, int m)
+double metoda_trapezow_horner(double* an, double* xn, int n, int m)
 {
 	double output = 0;
 	double temp = 0;
@@ -10,7 +10,7 @@ double metoda_trapezow_horner(double (*f)(double* an, double x, int n), double* 
 	for (int i = 0; i < n-1; i++)
 	{
 		temp = ((xn[i + 1] - xn[i]) / 2);
-		output += (temp * f(an, xn[i], m) + temp* f(an, xn[i+1], m));
+		output += (temp * Horner_PostacNaturalna(an, xn[i], m) + temp* Horner_PostacNaturalna(an, xn[i+1], m));
 	}
 
 	return output;
@@ -19,14 +19,14 @@ double metoda_trapezow_horner(double (*f)(double* an, double x, int n), double* 
 double NC_wzor_trapezow(double (*f)(double x), double up, double down, int n)
 {
 	double output = 0;
-	double offset = abs(up - down) / n;
 	double area = 0;
+	double offset = fabs((up - down) / n);
 	double temp = (offset / 2);
 	double j = down;
+
 	for (int i = 0; i < n - 1; i++)
 	{
-		area = (temp * f(j) + temp * f(j + offset));
-		output += area;
+		output += temp * (f(j) + f(j + offset));
 		j += offset;
 	}
 
@@ -36,8 +36,8 @@ double NC_wzor_trapezow(double (*f)(double x), double up, double down, int n)
 double NC_wzor_Simpsona(double (*f)(double x), double up, double down, int n)
 {
 	double output = 0;
-	double offset = (up - down) / n;
 	double area = 0;
+	double offset = (up - down) / n;
 	double temp = (offset / 6);
 	double j = down;
 	for (int i = 0; i < n - 1; i++)
