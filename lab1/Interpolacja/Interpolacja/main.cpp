@@ -129,29 +129,29 @@ int main()
 	//
 	//	Newton-Cotes wzor trapezów
 	//
-	std::cout << "Wzor Trapezow" << std::endl;
-	//std::cout << NC_wzor_trapezow(&fun_tryg, 4.5, 0, 1000000) << std::endl;
+	//std::cout << "Wzor Trapezow" << std::endl;
+	////std::cout << NC_wzor_trapezow(&fun_tryg, 4.5, 0, 1000000) << std::endl;
 	std::cout.precision(10);
 
-	std::cout << NC_wzor_trapezow(&fun1, 2, -2, 1000000) << std::endl;
-	std::cout << NC_wzor_trapezow(&fun2, 2, -2, 1000000) << std::endl;
-	std::cout << NC_wzor_trapezow(&fun3, 4.5, 0, 2000000) << std::endl;
-	std::cout << NC_wzor_trapezow(&fun4, 2, -2, 5500000) << std::endl;
-	std::cout << NC_wzor_trapezow(&fun5, 1, 0, 5500000) << std::endl;
-	std::cout << NC_wzor_trapezow(&fun6, (1 - 1e-4), 0, 100) << std::endl;
-	std::cout << NC_wzor_trapezow(&fun7, 1, 0, 1000000) << std::endl;
+	//std::cout << NC_wzor_trapezow(&fun1, 2, -2, 1000000) << std::endl;
+	//std::cout << NC_wzor_trapezow(&fun2, 2, -2, 1000000) << std::endl;
+	//std::cout << NC_wzor_trapezow(&fun3, 4.5, 0, 2000000) << std::endl;
+	//std::cout << NC_wzor_trapezow(&fun4, 2, -2, 5500000) << std::endl;
+	//std::cout << NC_wzor_trapezow(&fun5, 1, 0, 5500000) << std::endl;
+	//std::cout << NC_wzor_trapezow(&fun6, (1 - 1e-4), 0, 100) << std::endl;
+	//std::cout << NC_wzor_trapezow(&fun7, 1, 0, 1000000) << std::endl;
 
 
-	std::cout << std::endl;
-	std::cout << std::endl;
+	//std::cout << std::endl;
+	//std::cout << std::endl;
 
 
 	//
 	//	Newton_Cotes wzor Simpsona
 	//
 	std::cout << "Wzor Simpsona" << std::endl;
-	//std::cout << NC_wzor_Simpsona(&fun_tryg, 4.5, 0, 1000000) << std::endl;
-	//std::cout << NC_wzor_Simpsona(&fun_exp, 2, -2, 1000000) << std::endl;
+	////std::cout << NC_wzor_Simpsona(&fun_tryg, 4.5, 0, 1000000) << std::endl;
+	////std::cout << NC_wzor_Simpsona(&fun_exp, 2, -2, 1000000) << std::endl;
 
 	std::cout << NC_wzor_Simpsona(&fun1, 2, -2, 1000000) << std::endl;
 	std::cout << NC_wzor_Simpsona(&fun2, 2, -2, 1000000) << std::endl;
@@ -161,8 +161,18 @@ int main()
 	std::cout << NC_wzor_Simpsona(&fun6, 1 - 1e-4, 0, 1000000) << std::endl;
 	std::cout << NC_wzor_Simpsona(&fun7, 1, 0, 1000000) << std::endl;
 
-
-
+	//
+	//	Metoda Gaussa
+	//
+	std::cout << "Metoda Gaussa" << std::endl;
+	std::cout << Integrate(&fun1, 2, -2, 10000, 2) << std::endl;
+	std::cout << Integrate(&fun2, 2, -2, 10000, 2) << std::endl;
+	std::cout << Integrate(&fun3, 4.5, 0, 10000, 2) << std::endl;
+	std::cout << Integrate(&fun4, 2, -2, 10000, 2) << std::endl;
+	std::cout << Integrate(&fun5, 1, 0, 10000, 2) << std::endl;
+	std::cout << Integrate(&fun6, 1 - 1e-4, 0, 10000, 2) << std::endl;
+	std::cout << Integrate(&fun7, 1, 0, 10000, 2) << std::endl;
+	
 	return 0;
 }
 
