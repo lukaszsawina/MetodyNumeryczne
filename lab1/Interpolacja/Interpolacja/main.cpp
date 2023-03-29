@@ -3,6 +3,8 @@
 
 #include "Interpolacja.h"
 #include "Kwadratura.h"
+#include "UkladyRownan.h"
+
 
 double fun1(double x)
 {
@@ -149,30 +151,61 @@ int main()
 	//
 	//	Newton_Cotes wzor Simpsona
 	//
-	std::cout << "Wzor Simpsona" << std::endl;
+	//std::cout << "Wzor Simpsona" << std::endl;
 	////std::cout << NC_wzor_Simpsona(&fun_tryg, 4.5, 0, 1000000) << std::endl;
 	////std::cout << NC_wzor_Simpsona(&fun_exp, 2, -2, 1000000) << std::endl;
 
-	std::cout << NC_wzor_Simpsona(&fun1, 2, -2, 1000000) << std::endl;
-	std::cout << NC_wzor_Simpsona(&fun2, 2, -2, 1000000) << std::endl;
-	std::cout << NC_wzor_Simpsona(&fun3, 4.5, 0, 2000000) << std::endl;
-	std::cout << NC_wzor_Simpsona(&fun4, 2, -2, 5500000) << std::endl;
-	std::cout << NC_wzor_Simpsona(&fun5, 1, 0, 5500000) << std::endl;
-	std::cout << NC_wzor_Simpsona(&fun6, 1 - 1e-4, 0, 1000000) << std::endl;
-	std::cout << NC_wzor_Simpsona(&fun7, 1, 0, 1000000) << std::endl;
+	//std::cout << NC_wzor_Simpsona(&fun1, 2, -2, 1000000) << std::endl;
+	//std::cout << NC_wzor_Simpsona(&fun2, 2, -2, 1000000) << std::endl;
+	//std::cout << NC_wzor_Simpsona(&fun3, 4.5, 0, 2000000) << std::endl;
+	//std::cout << NC_wzor_Simpsona(&fun4, 2, -2, 5500000) << std::endl;
+	//std::cout << NC_wzor_Simpsona(&fun5, 1, 0, 5500000) << std::endl;
+	//std::cout << NC_wzor_Simpsona(&fun6, 1 - 1e-4, 0, 1000000) << std::endl;
+	//std::cout << NC_wzor_Simpsona(&fun7, 1, 0, 1000000) << std::endl;
 
 	//
 	//	Metoda Gaussa
 	//
-	std::cout << "Metoda Gaussa" << std::endl;
-	std::cout << Integrate(&fun1, 2, -2, 10000, 2) << std::endl;
-	std::cout << Integrate(&fun2, 2, -2, 10000, 2) << std::endl;
-	std::cout << Integrate(&fun3, 4.5, 0, 10000, 2) << std::endl;
-	std::cout << Integrate(&fun4, 2, -2, 10000, 2) << std::endl;
-	std::cout << Integrate(&fun5, 1, 0, 10000, 2) << std::endl;
-	std::cout << Integrate(&fun6, 1 - 1e-4, 0, 10000, 2) << std::endl;
-	std::cout << Integrate(&fun7, 1, 0, 10000, 2) << std::endl;
-	
+	//std::cout << "Metoda Gaussa" << std::endl;
+	//std::cout << CalkowanieGaussa(&fun1, 2, -2, 10000, 2) << std::endl;
+	//std::cout << CalkowanieGaussa(&fun2, 2, -2, 10000, 2) << std::endl;
+	//std::cout << CalkowanieGaussa(&fun3, 4.5, 0, 10000, 2) << std::endl;
+	//std::cout << CalkowanieGaussa(&fun4, 2, -2, 10000, 2) << std::endl;
+	//std::cout << CalkowanieGaussa(&fun5, 1, 0, 10000, 2) << std::endl;
+	//std::cout << CalkowanieGaussa(&fun6, 1 - 1e-4, 0, 10000, 2) << std::endl;
+	//std::cout << CalkowanieGaussa(&fun7, 1, 0, 10000, 2) << std::endl;
+
+
+	//
+	//	Eliminacja gaussa
+	//
+	int n = 8;
+	double** A = new double* [n];
+	double* B = new double[n];
+
+
+	for (int i = 0; i < n; i++)
+	{
+		A[i] = new double[n];
+	}
+
+
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			A[i][j] = (1. / ((i+j+2.)-1.));
+		}
+		B[i] = 1.;
+	}
+
+	double* x =ElimGauss(A, B, n);
+
+	for (int i = 0; i < n; i++)
+		std::cout << "x" << i+1 << ": " << x[i] << " ";
+
+	delete[]x;
 	return 0;
 }
 

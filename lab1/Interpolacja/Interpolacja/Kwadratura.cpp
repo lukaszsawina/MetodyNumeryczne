@@ -104,7 +104,7 @@ double Gauss(double (*f)(double x), double up, double down, int n)
 }
 
 
-double Integrate(double (*f)(double x), double up, double down, int m, int n)
+double CalkowanieGaussa(double (*f)(double x), double up, double down, int m, int n)
 {
 	double output = 0;
 	double offset = (up - down) / m;

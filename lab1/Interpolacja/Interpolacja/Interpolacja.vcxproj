@@ -130,10 +130,12 @@
     <ClCompile Include="Interpolacja.cpp" />
     <ClCompile Include="Kwadratura.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="UkladRownan.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Interpolacja.h" />
     <ClInclude Include="Kwadratura.h" />
+    <ClInclude Include="UkladyRownan.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
