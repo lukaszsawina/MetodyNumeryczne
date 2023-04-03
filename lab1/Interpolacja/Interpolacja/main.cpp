@@ -179,7 +179,7 @@ int main()
 	//
 	//	Eliminacja gaussa
 	//
-	int n = 8;
+	/*int n = 8;
 	double** A = new double* [n];
 	double* B = new double[n];
 
@@ -205,7 +205,59 @@ int main()
 	for (int i = 0; i < n; i++)
 		std::cout << "x" << i+1 << ": " << x[i] << " ";
 
-	delete[]x;
+	delete[]x;*/
+
+
+
+	//
+	//	Rozk³ad LU
+	//
+	const int n = 3;
+
+	double A_data[n][n] = { {60,30,20},
+					   {30,20,15},
+					   {20,15,12}};
+
+	double** L = new double* [n];
+	double** U = new double*[n];
+
+	double* A[n];
+
+	for (int i = 0; i < n; i++)
+	{
+		A[i] = A_data[i];
+		L[i] = new double[n];
+		U[i] = new double[n];
+	}
+
+
+	RozkladLU(A, L, U, n);
+
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			std::cout << L[i][j] << "\t";
+		}
+		std::cout << std::endl;
+	}
+	
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			std::cout << U[i][j] << "\t";
+
+		}
+		std::cout << std::endl;
+
+	}
+
 	return 0;
 }
 
