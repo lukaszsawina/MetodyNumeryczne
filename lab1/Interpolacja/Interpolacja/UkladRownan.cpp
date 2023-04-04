@@ -70,24 +70,8 @@ double* ElimGauss(double** A, double* b, int n)
     return x;
 }
 
-void RozkladLU(double** A, double** L, double** U, int n)
-{
-
-
-    //Zerowanie macierzy L i U
-    //Ustawienie 1 na górnej przek¹tnej macierzy L
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            L[i][j] = 0;
-            U[i][j] = 0;
-            if (i == j)
-                L[i][j] = 1;
-        }
-    }
-
-    double tmp = 0;
+void RozkladLU(double** A, int n)
+{    double tmp = 0;
 
     for (int i = 0; i < n; i++)
     {
@@ -97,18 +81,54 @@ void RozkladLU(double** A, double** L, double** U, int n)
             {   
                 tmp = 0;
                 for (int k = 0; k < i; k++)
-                    tmp += L[i][k] * U[k][j];
+                    tmp += A[i][k] * A[k][j];
 
-                U[i][j] = A[i][j] - tmp;
+                A[i][j] = A[i][j] - tmp;
             }
             else
             {
                 tmp = 0;
                 for (int k = 0; k < j ; k++)
-                    tmp += L[i][k] * U[k][j];
-                L[i][j] = (1 / U[j][j]) * (A[i][j] - tmp);
+                    tmp += A[i][k] * A[k][j];
+                A[i][j] = (1 / A[j][j]) * (A[i][j] - tmp);
             }
         }
     }
 
+}
+
+double* URRozkladLU(double** A, double* b, int n)
+{
+    RozkladLU(A, n);
+
+    double* x = new double[n];
+
+    double tmp = 0;
+    //Obliczanie y
+
+    x[0] = b[0];
+    for (int i = 1; i < n; i++)
+    {
+        tmp = b[i];
+        for (int j = 0; j < i; j++)
+        {
+            tmp -= A[i][j] * x[j];
+        }
+        x[i] = tmp;
+    }
+
+    //Obliczanie x
+
+    x[n - 1] /= A[n - 1][n-1];
+    for (int i = n-2; i >= 0; i--)
+    {
+        tmp = x[i];
+        for (int j = n-1; j > i; j--)
+        {
+            tmp -= A[i][j] * x[j];
+        }
+        x[i] = tmp /A[i][i];
+    }
+
+    return x;
 }

@@ -214,49 +214,48 @@ int main()
 	//
 	const int n = 3;
 
-	double A_data[n][n] = { {60,30,20},
-					   {30,20,15},
-					   {20,15,12}};
+	//double A_data[n][n] = { {60,30,20},
+	//				   {30,20,15},
+	//				   {20,15,12}};
 
-	double** L = new double* [n];
-	double** U = new double*[n];
+	//double* A[n];
 
+	//for (int i = 0; i < n; i++)
+	//{
+	//	A[i] = A_data[i];
+	//}
+
+
+	//RozkladLU(A,n);
+
+
+	//for (int i = 0; i < n; i++)
+	//{
+	//	for (int j = 0; j < n; j++)
+	//	{
+	//		std::cout << A[i][j] << "\t";
+	//	}
+	//	std::cout << std::endl;
+	//}
+	
+	double A_data[n][n] = { {2,3,-1},
+					   {1,-1,1},
+					   {-1,2,-3}};
 	double* A[n];
+	double b[n] = { 11,0,12 };
 
 	for (int i = 0; i < n; i++)
 	{
 		A[i] = A_data[i];
-		L[i] = new double[n];
-		U[i] = new double[n];
 	}
 
-
-	RozkladLU(A, L, U, n);
-
+	double* x = URRozkladLU(A, b, n);
 
 	for (int i = 0; i < n; i++)
 	{
-		for (int j = 0; j < n; j++)
-		{
-			std::cout << L[i][j] << "\t";
-		}
-		std::cout << std::endl;
+		std::cout << x[i] << " ";
 	}
-	
-	std::cout << std::endl;
-	std::cout << std::endl;
 
-
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
-			std::cout << U[i][j] << "\t";
-
-		}
-		std::cout << std::endl;
-
-	}
 
 	return 0;
 }
