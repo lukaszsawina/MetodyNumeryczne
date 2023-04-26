@@ -4,8 +4,8 @@
 double Horner_PostacNaturalna(double* an, double x, int n)
 {
 	double wi = an[0];
-	for (int i = n - 1, j = 1; i > 0; i--, j++)
-		wi = wi * x + an[j];
+	for (int i = 1; i <= n; i++)
+		wi = wi * x + an[i];
 	return wi;
 }
 

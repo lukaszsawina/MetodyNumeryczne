@@ -127,14 +127,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Aproksymacja.cpp" />
     <ClCompile Include="Interpolacja.cpp" />
     <ClCompile Include="Kwadratura.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Ortogonalnosc.cpp" />
     <ClCompile Include="UkladRownan.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Aproksymacja.h" />
     <ClInclude Include="Interpolacja.h" />
     <ClInclude Include="Kwadratura.h" />
+    <ClInclude Include="Ortogonalizacja.h" />
     <ClInclude Include="UkladyRownan.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

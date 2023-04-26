@@ -1,2 +1,5 @@
-﻿  UkladRownan.cpp
+﻿  Aproksymacja.cpp
+C:\dev\MetodyNumeryczne\lab1\Interpolacja\Interpolacja\Aproksymacja.cpp(82,76): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  main.cpp
+  Generating Code...
   Interpolacja.vcxproj -> C:\dev\MetodyNumeryczne\lab1\Interpolacja\x64\Debug\Interpolacja.exe

@@ -27,6 +27,12 @@
     <ClCompile Include="UkladRownan.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Ortogonalnosc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Aproksymacja.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Interpolacja.h">
@@ -36,6 +42,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UkladyRownan.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ortogonalizacja.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Aproksymacja.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
