@@ -132,6 +132,7 @@
     <ClCompile Include="Kwadratura.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Ortogonalnosc.cpp" />
+    <ClCompile Include="Rozniczkowe.cpp" />
     <ClCompile Include="UkladRownan.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +140,7 @@
     <ClInclude Include="Interpolacja.h" />
     <ClInclude Include="Kwadratura.h" />
     <ClInclude Include="Ortogonalizacja.h" />
+    <ClInclude Include="Rozniczkowe.h" />
     <ClInclude Include="UkladyRownan.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -6,6 +6,10 @@
 #include "UkladyRownan.h"
 #include "Ortogonalizacja.h"
 #include "Aproksymacja.h"
+#include "Rozniczkowe.h"
+
+#define ALFA -1e-12
+#define BETA 0
 
 //
 //	Funkcje do ca³kowania
@@ -56,6 +60,11 @@
 double funsin(double x)
 {
 	return sin(-x) + exp(-x) - pow(x, 3);
+}
+
+double funRoz(double x, double y)
+{
+	return ALFA*(pow(y, 4) - BETA);
 }
 
 int main()
@@ -270,7 +279,7 @@ int main()
 	//	Aproksymacja
 	// 
 
-	std::vector<std::vector<double>> S = {	{1.,0.,0.,0.,0.},
+	/*std::vector<std::vector<double>> S = {	{1.,0.,0.,0.,0.},
 											{0.,1.,0.,0.,0.}, 
 											{0.,0.,1.,0.,0.}, 
 											{0.,0.,0.,1.,0.}, 
@@ -286,8 +295,20 @@ int main()
 	for (int i = 0; i < Wspol.size(); i++)
 	{
 		std::cout << Wspol[i] << "\t";
-	}
+	}*/
 
+
+	//
+	//	Ró¿niczki
+	//
+
+	std::cout << Euler(funRoz, 1200, 0, 300, 10000) << std::endl;
+
+	std::cout << EulerHoena(funRoz, 1200, 0, 300, 10000) << std::endl;
+
+	std::cout << ZmodyfikowanyEuler(funRoz, 1200, 0, 300, 10000) << std::endl;
+
+	std::cout << RungegoKutty(funRoz, 1200, 0, 300, 10000) << std::endl;
 
 
 	return 0;
