@@ -36,6 +36,9 @@
     <ClCompile Include="Rozniczkowe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RownaniaNieliniowe.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Interpolacja.h">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Rozniczkowe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RownaniaNieliniowe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

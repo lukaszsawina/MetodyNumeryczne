@@ -7,6 +7,7 @@
 #include "Ortogonalizacja.h"
 #include "Aproksymacja.h"
 #include "Rozniczkowe.h"
+#include "RownaniaNieliniowe.h"
 
 #define ALFA -1e-12
 #define BETA 0
@@ -65,6 +66,12 @@ double funsin(double x)
 double funRoz(double x, double y)
 {
 	return ALFA*(pow(y, 4) - BETA);
+}
+
+
+double fun1(double x)
+{
+	return 3 * pow(x, 2) + 2 * x - 3;
 }
 
 int main()
@@ -302,14 +309,23 @@ int main()
 	//	Ró¿niczki
 	//
 
-	std::cout << Euler(funRoz, 1200, 0, 300, 10000) << std::endl;
+	//std::cout << Euler(funRoz, 1200, 0, 300, 10000) << std::endl;
 
-	std::cout << EulerHoena(funRoz, 1200, 0, 300, 10000) << std::endl;
+	//std::cout << EulerHoena(funRoz, 1200, 0, 300, 10000) << std::endl;
 
-	std::cout << ZmodyfikowanyEuler(funRoz, 1200, 0, 300, 10000) << std::endl;
+	//std::cout << ZmodyfikowanyEuler(funRoz, 1200, 0, 300, 10000) << std::endl;
 
-	std::cout << RungegoKutty(funRoz, 1200, 0, 300, 10000) << std::endl;
+	//std::cout << RungegoKutty(funRoz, 1200, 0, 300, 10000) << std::endl;
 
+	//
+	//	Równania nieliniowe
+	// 
+	
+
+	std::cout << MetodaNewtona(fun1, -1000, 1000) << std::endl;
+	std::cout << regula_falsi(fun1, -1000, 1000) << std::endl;
+	std::cout << Pegaza(fun1, -1000, 1000) << std::endl;
+	
 
 	return 0;
 }
